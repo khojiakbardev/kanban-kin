@@ -56,7 +56,7 @@ export function IssueCard({ issue, isDragging = false, isUpdating = false, canDr
       ref={setNodeRef}
       style={style}
       className={`
-        cursor-pointer transition-all duration-200 group
+        cursor-pointer transition-all duration-200 group touch-manipulation
         ${isDragging || isDraggingActive ? 'shadow-glow rotate-2 scale-105' : 'shadow-card hover:shadow-card-hover'}
         ${isUpdating ? 'opacity-50 pointer-events-none' : ''}
         ${!canDrag ? 'cursor-default' : ''}
@@ -65,7 +65,7 @@ export function IssueCard({ issue, isDragging = false, isUpdating = false, canDr
       {...listeners}
       {...attributes}
     >
-      <CardContent className="p-4">
+      <CardContent className="p-3 md:p-4">
         {/* Priority Badge */}
         <div className="flex items-start justify-between mb-3">
           <Badge 
@@ -86,12 +86,12 @@ export function IssueCard({ issue, isDragging = false, isUpdating = false, canDr
         </div>
 
         {/* Title */}
-        <h4 className="font-medium text-sm text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+        <h4 className="font-medium text-xs md:text-sm text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
           {issue.title}
         </h4>
 
         {/* Description */}
-        <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
+        <p className="text-xs text-muted-foreground mb-2 md:mb-3 line-clamp-2">
           {issue.description}
         </p>
 
@@ -112,15 +112,15 @@ export function IssueCard({ issue, isDragging = false, isUpdating = false, canDr
         )}
 
         {/* Bottom Row */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           {/* Assignee */}
           <div className="flex items-center gap-2">
-            <Avatar className="w-6 h-6">
+            <Avatar className="w-5 h-5 md:w-6 md:h-6">
               <AvatarFallback className="text-xs bg-muted">
                 {issue.assignee.split(' ').map(n => n[0]).join('')}
               </AvatarFallback>
             </Avatar>
-            <span className="text-xs text-muted-foreground truncate max-w-20">
+            <span className="text-xs text-muted-foreground truncate max-w-24">
               {issue.assignee}
             </span>
           </div>

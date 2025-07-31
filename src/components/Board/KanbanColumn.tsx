@@ -25,14 +25,14 @@ export function KanbanColumn({ column, isUpdating, canDrop }: KanbanColumnProps)
       `}
     >
       {/* Column Header */}
-      <div className="p-4 border-b border-border">
+      <div className="p-3 md:p-4 border-b border-border">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div 
               className="w-3 h-3 rounded-full"
               style={{ backgroundColor: column.color }}
             />
-            <h3 className="font-semibold text-foreground">{column.title}</h3>
+            <h3 className="font-semibold text-foreground text-sm md:text-base">{column.title}</h3>
           </div>
           <Badge variant="secondary" className="text-xs">
             {column.issues.length}
@@ -41,7 +41,7 @@ export function KanbanColumn({ column, isUpdating, canDrop }: KanbanColumnProps)
       </div>
 
       {/* Issues List */}
-      <div className="flex-1 p-4 space-y-3 overflow-y-auto max-h-[calc(100vh-280px)] min-h-0">
+      <div className="flex-1 p-3 md:p-4 space-y-2 md:space-y-3 overflow-y-auto max-h-[calc(100vh-240px)] md:max-h-[calc(100vh-280px)] min-h-0">
         {column.issues.map(issue => (
           <IssueCard
             key={issue.id}

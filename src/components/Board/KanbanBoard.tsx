@@ -192,16 +192,17 @@ export function KanbanBoard({ issues, onIssuesChange, filters, onFiltersChange }
           onOpenSidebar={() => setSidebarOpen(true)}
         />
         
-        <div className="flex-1 p-6 overflow-hidden">
+        <div className="flex-1 p-3 md:p-6 overflow-hidden">
           <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-            <div className="grid grid-cols-3 gap-6 h-full">
+            <div className="flex gap-3 md:gap-6 h-full overflow-x-auto md:grid md:grid-cols-3">
               {columns.map(column => (
-                <KanbanColumn
-                  key={column.id}
-                  column={column}
-                  isUpdating={isUpdating}
-                  canDrop={canDragDrop}
-                />
+                <div key={column.id} className="w-72 md:w-auto flex-shrink-0">
+                  <KanbanColumn
+                    column={column}
+                    isUpdating={isUpdating}
+                    canDrop={canDragDrop}
+                  />
+                </div>
               ))}
             </div>
             
