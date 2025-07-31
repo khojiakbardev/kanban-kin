@@ -41,7 +41,7 @@ export function KanbanColumn({ column, isUpdating, canDrop }: KanbanColumnProps)
       </div>
 
       {/* Issues List */}
-      <div className="flex-1 p-4 space-y-3 overflow-y-auto">
+      <div className="flex-1 p-4 space-y-3 overflow-y-auto max-h-[calc(100vh-280px)] min-h-0">
         {column.issues.map(issue => (
           <IssueCard
             key={issue.id}
