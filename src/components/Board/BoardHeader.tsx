@@ -88,14 +88,14 @@ export function BoardHeader({
 
           {/* Assignee Filter */}
           <Select 
-            value={filters.assignee || ''} 
-            onValueChange={(value) => onFiltersChange({ ...filters, assignee: value || null })}
+            value={filters.assignee || 'all'} 
+            onValueChange={(value) => onFiltersChange({ ...filters, assignee: value === 'all' ? null : value })}
           >
             <SelectTrigger className="w-48">
               <SelectValue placeholder="Filter by assignee" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All assignees</SelectItem>
+              <SelectItem value="all">All assignees</SelectItem>
               {assignees.map(assignee => (
                 <SelectItem key={assignee} value={assignee}>
                   {assignee}
@@ -106,14 +106,14 @@ export function BoardHeader({
 
           {/* Severity Filter */}
           <Select 
-            value={filters.severity?.toString() || ''} 
-            onValueChange={(value) => onFiltersChange({ ...filters, severity: value ? Number(value) as Severity : null })}
+            value={filters.severity?.toString() || 'all'} 
+            onValueChange={(value) => onFiltersChange({ ...filters, severity: value === 'all' ? null : Number(value) as Severity })}
           >
             <SelectTrigger className="w-40">
               <SelectValue placeholder="Severity" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All severities</SelectItem>
+              <SelectItem value="all">All severities</SelectItem>
               <SelectItem value="1">1 - Minimal</SelectItem>
               <SelectItem value="2">2 - Minor</SelectItem>
               <SelectItem value="3">3 - Moderate</SelectItem>
@@ -124,14 +124,14 @@ export function BoardHeader({
 
           {/* Priority Filter */}
           <Select 
-            value={filters.priority || ''} 
-            onValueChange={(value) => onFiltersChange({ ...filters, priority: value as Priority || null })}
+            value={filters.priority || 'all'} 
+            onValueChange={(value) => onFiltersChange({ ...filters, priority: value === 'all' ? null : value as Priority })}
           >
             <SelectTrigger className="w-36">
               <SelectValue placeholder="Priority" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All priorities</SelectItem>
+              <SelectItem value="all">All priorities</SelectItem>
               <SelectItem value="low">Low</SelectItem>
               <SelectItem value="medium">Medium</SelectItem>
               <SelectItem value="high">High</SelectItem>
