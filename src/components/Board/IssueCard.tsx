@@ -56,8 +56,8 @@ export function IssueCard({ issue, isDragging = false, isUpdating = false, canDr
       ref={setNodeRef}
       style={style}
       className={`
-        cursor-pointer transition-all duration-200 group touch-manipulation
-        ${isDragging || isDraggingActive ? 'shadow-glow rotate-2 scale-105' : 'shadow-card hover:shadow-card-hover'}
+        cursor-pointer transition-all duration-200 group touch-manipulation bg-gradient-card
+        ${isDragging || isDraggingActive ? 'opacity-90 scale-105 z-50' : 'shadow-card hover:shadow-card-hover'}
         ${isUpdating ? 'opacity-50 pointer-events-none' : ''}
         ${!canDrag ? 'cursor-default' : ''}
       `}

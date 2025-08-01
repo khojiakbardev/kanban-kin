@@ -206,9 +206,11 @@ export function KanbanBoard({ issues, onIssuesChange, filters, onFiltersChange }
               ))}
             </div>
             
-            <DragOverlay>
+            <DragOverlay dropAnimation={null}>
               {draggedIssue && (
-                <IssueCard issue={draggedIssue} isDragging />
+                <div className="rotate-3 scale-105">
+                  <IssueCard issue={draggedIssue} isDragging />
+                </div>
               )}
             </DragOverlay>
           </DndContext>
