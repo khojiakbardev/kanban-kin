@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { FilterState, Priority, Severity } from '@/types';
 import { currentUser } from '@/data/currentUser';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 interface BoardHeaderProps {
   filters: FilterState;
@@ -67,6 +68,9 @@ export function BoardHeader({
                 {isPolling ? 'Syncing...' : 'Synced'}
               </span>
             </div>
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
             {/* Recently Viewed Button */}
             <Button variant="outline" size="sm" onClick={onOpenSidebar}>
