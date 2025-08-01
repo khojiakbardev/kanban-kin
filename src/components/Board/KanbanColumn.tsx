@@ -41,7 +41,7 @@ export function KanbanColumn({ column, isUpdating, canDrop }: KanbanColumnProps)
     <div
       ref={setNodeRef}
       className={`
-        flex flex-col h-full bg-gradient-card rounded-xl border-2 transition-all duration-200
+        flex flex-col h-full bg-gradient-card dark:bg-card/50 rounded-xl border-2 transition-all duration-200
         ${isOver && canDrop ? 'border-primary shadow-glow' : 'border-border'}
         ${!canDrop ? 'opacity-60' : ''}
       `}

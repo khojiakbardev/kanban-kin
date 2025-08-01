@@ -43,7 +43,7 @@ export function BoardHeader({
   };
 
   return (
-    <div className="border-b border-border bg-gradient-secondary">
+    <div className="border-b border-border bg-gradient-secondary dark:bg-background/80 backdrop-blur-sm">
       <div className="px-4 md:px-6 py-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3">
