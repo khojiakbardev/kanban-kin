@@ -83,11 +83,15 @@ export function KanbanBoard({ issues, onIssuesChange, filters, onFiltersChange }
   const handleDragStart = (event: DragStartEvent) => {
     const issue = issues.find(i => i.id === event.active.id);
     setDraggedIssue(issue || null);
+    // Disable scrolling during drag
+    document.body.style.overflow = 'hidden';
   };
 
   const handleDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
     setDraggedIssue(null);
+    // Re-enable scrolling after drag
+    document.body.style.overflow = 'auto';
 
     if (!over || active.id === over.id) return;
 
