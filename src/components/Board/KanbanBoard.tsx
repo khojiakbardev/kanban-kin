@@ -194,7 +194,7 @@ export function KanbanBoard({ issues, onIssuesChange, filters, onFiltersChange }
         
         <div className="flex-1 p-3 md:p-6 overflow-hidden">
           <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-            <div className="flex gap-3 md:gap-6 h-full overflow-x-auto md:grid md:grid-cols-3">
+            <div className={`flex gap-3 md:gap-6 h-full md:grid md:grid-cols-3 ${draggedIssue ? 'overflow-hidden' : 'overflow-x-auto'}`}>
               {columns.map(column => (
                 <div key={column.id} className="w-72 md:w-auto flex-shrink-0">
                   <KanbanColumn
